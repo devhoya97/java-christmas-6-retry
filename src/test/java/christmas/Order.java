@@ -20,7 +20,7 @@ public class Order {
 
     public Order(Map<String, Integer> order) {
         validateEachMenuCount(order);
-        validateTotalMenuNumber(order);
+        validateTotalMenuCount(order);
 
         for (Entry<String, Integer> orderEntry : order.entrySet()) {
             Menu orderedMenu = findMenu(orderEntry.getKey());
@@ -59,7 +59,7 @@ public class Order {
         }
     }
 
-    private void validateTotalMenuNumber(Map<String, Integer> order) {
+    private void validateTotalMenuCount(Map<String, Integer> order) {
         int menuCountSum = order.values()
                 .stream()
                 .mapToInt(menuCount -> menuCount)
