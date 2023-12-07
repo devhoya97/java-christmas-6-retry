@@ -1,13 +1,34 @@
 package christmas;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Event {
+    private static final int DEFAULT_CHRISTMAS_DISCOUNT = 1_000;
+    private static final int CHRISTMAS_DISCOUNT_INCREASE = 100;
+    private static final int MIN_TOTAL_PRICE = 10_000;
+    private final Order order;
+    private final VisitDate visitDate;
 
-    private Map<Benefit, Integer> benefits;
+    private Map<Benefit, Integer> benefits = new HashMap<>();
+
+    public Event(Order order, VisitDate visitDate) {
+        this.order = order;
+        this.visitDate = visitDate;
+
+        calculateBenefits();
+    }
 
     private void calculateBenefits() {
+        if (order.calculateTotalPrice() < MIN_TOTAL_PRICE) {
+            return;
+        }
 
+        calculateChristmasDiscount();
+        calculateWeekDayDiscount();
+        calculateWeekendDiscount();
+        calculateSpecialDiscount();
+        getGift();
     }
 
     private void calculateChristmasDiscount() {
