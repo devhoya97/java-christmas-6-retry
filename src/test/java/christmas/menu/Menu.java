@@ -14,4 +14,6 @@ public interface Menu {
     public boolean isMain();
 
     public boolean isDessert();
+
+    public boolean isDrink();
 }

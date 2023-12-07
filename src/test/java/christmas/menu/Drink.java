@@ -39,4 +39,9 @@ public enum Drink implements Menu {
     public boolean isDessert() {
         return false;
     }
+
+    @Override
+    public boolean isDrink() {
+        return true;
+    }
 }

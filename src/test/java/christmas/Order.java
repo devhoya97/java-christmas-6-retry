@@ -26,6 +26,8 @@ public class Order {
             Menu orderedMenu = findMenu(orderEntry.getKey());
             this.order.put(orderedMenu, orderEntry.getValue());
         }
+
+        validateOnlyDrink();
     }
 
     private Menu findMenu(String name) {
@@ -70,8 +72,14 @@ public class Order {
         }
     }
 
-    private void validateOnlyDrink(Map<Menu, Integer> order) {
+    private void validateOnlyDrink() {
+        for (Menu menu : order.keySet()) {
+            if (!menu.isDrink()) {
+                return;
+            }
+        }
 
+        throw new IllegalArgumentException(INVALID_ORDER);
     }
 
     public int totalPrice() {

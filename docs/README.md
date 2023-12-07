@@ -19,7 +19,7 @@
     - [ ] 모든 이벤트는 총주문 금액 10,000원 이상부터 적용된다.
   - [ ] [예외처리] 방문 날짜가 1 이상 31 이하가 아니라면 예외를 발생시킨다.
     - [ ] "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해주세요." 를 출력한다.
-  - [ ] [예외처리] 음료만 주문 시, IllegalArgumentException을 발생시킨다.
+  - [x] [예외처리] 음료만 주문 시, IllegalArgumentException을 발생시킨다.
   - [x] [예외처리] 메뉴를 20개 초과하여 주문 시, IllegalArgumentException을 발생시킨다.
   - [x] [예외처리] 메뉴판에 없는 메뉴를 입력하는 경우, IllegalArgumentException을 발생시킨다.
   - [x] [예외처리] 메뉴 이름과 함께 0개를 주문하는 경우, IllegalArgumentException을 발생시킨다.

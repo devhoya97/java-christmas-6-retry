@@ -40,4 +40,9 @@ public enum Main implements Menu {
     public boolean isDessert() {
         return false;
     }
+
+    @Override
+    public boolean isDrink() {
+        return false;
+    }
 }
