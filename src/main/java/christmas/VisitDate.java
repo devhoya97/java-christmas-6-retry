@@ -24,7 +24,7 @@ public class VisitDate {
     }
 
     public int countDifferenceFromFirstDate() {
-        return 0;
+        return date - MIN_DATE;
     }
 
     public boolean isInSpecialPromotion() {
