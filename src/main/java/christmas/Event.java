@@ -111,4 +111,8 @@ public class Event {
     public boolean doesGetGift() {
         return benefits.containsKey(Benefit.GITF);
     }
+
+    public boolean doesNotGetBenefit() {
+        return benefits.isEmpty();
+    }
 }
