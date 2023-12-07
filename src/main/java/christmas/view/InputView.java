@@ -36,11 +36,17 @@ public class InputView {
         for (String input : inputs) {
             String[] menuAndCount = input.split(MENU_COUNT_DELIMITER);
             validateMenuAndCountLength(menuAndCount);
+            validateUniqueMenu(order, menuAndCount[0].trim());
 
             order.put(menuAndCount[0].trim(), parseIntWithIllegalArgumentException(menuAndCount[1].trim()));
         }
-
         return order;
+    }
+
+    private void validateUniqueMenu(Map<String, Integer> order, String menu) {
+        if (order.containsKey(menu)) {
+            throw new IllegalArgumentException(INVALID_ORDER);
+        }
     }
 
     private void validateMenuAndCountLength(String[] menuAndCount) {
