@@ -17,6 +17,10 @@ public class OutputView {
     private static final String SPACE = " ";
     private static final String MONEY_PATTERN = "#,###";
 
+    public void printStart() {
+        System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.");
+    }
+
     public void printOrder(Order order) {
         StringBuilder message = new StringBuilder();
 
