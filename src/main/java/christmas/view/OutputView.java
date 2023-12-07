@@ -1,5 +1,7 @@
 package christmas.view;
 
+import christmas.Benefit;
+import christmas.Event;
 import christmas.Order;
 import christmas.menu.Menu;
 import java.text.DecimalFormat;
@@ -31,4 +33,23 @@ public class OutputView {
 
         return decimalFormat.format(number);
     }
+
+    public void printEventResult(Event event) {
+        StringBuilder message = new StringBuilder();
+
+        addGiftMessage(event, message);
+        System.out.println(message);
+    }
+
+    public void addGiftMessage(Event event, StringBuilder message) {
+        message.append("<증정 메뉴>").append(NEW_LINE);
+
+        if (event.doesGetGift()) {
+            message.append(Benefit.GITF.getName()).append(DOUBLE_NEW_LINE);
+            return;
+        }
+
+        message.append("없음").append(DOUBLE_NEW_LINE);
+    }
+
 }

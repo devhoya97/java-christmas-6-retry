@@ -15,5 +15,9 @@ public class Application {
         Order order = new Order(orderInput);
         OutputView outputView = new OutputView();
         outputView.printOrder(order);
+
+        VisitDate visitDate = new VisitDate(3);
+        Event event = new Event(order, visitDate);
+        outputView.printEventResult(event);
     }
 }

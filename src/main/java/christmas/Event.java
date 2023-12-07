@@ -1,6 +1,7 @@
 package christmas;
 
 import christmas.menu.Drink;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,7 +16,7 @@ public class Event {
     private final Order order;
     private final VisitDate visitDate;
 
-    private Map<Benefit, Integer> benefits = new HashMap<>();
+    private final Map<Benefit, Integer> benefits = new HashMap<>();
 
     public Event(Order order, VisitDate visitDate) {
         this.order = order;
@@ -101,5 +102,13 @@ public class Event {
         }
 
         return Badge.NOTHING;
+    }
+
+    public Map<Benefit, Integer> getBenefits() {
+        return Collections.unmodifiableMap(benefits);
+    }
+
+    public boolean doesGetGift() {
+        return benefits.containsKey(Benefit.GITF);
     }
 }
