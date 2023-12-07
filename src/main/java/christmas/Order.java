@@ -8,6 +8,7 @@ import christmas.menu.Drink;
 import christmas.menu.Main;
 import christmas.menu.Menu;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,5 +107,9 @@ public class Order {
                 .filter(orderItem -> orderItem.getKey().isDessert())
                 .mapToInt(Entry::getValue)
                 .sum();
+    }
+
+    public Map<Menu, Integer> getOrder() {
+        return Collections.unmodifiableMap(order);
     }
 }
