@@ -19,6 +19,8 @@ public class Order {
     private final Map<Menu, Integer> order = new HashMap<>();
 
     public Order(Map<String, Integer> order) {
+        validateTotalMenuNumber(order);
+
         for (Entry<String, Integer> orderEntry : order.entrySet()) {
             Menu orderedMenu = findMenu(orderEntry.getKey());
             this.order.put(orderedMenu, orderEntry.getValue());
