@@ -1,28 +1,34 @@
 package christmas;
 
+import static christmas.ChristmasConstants.INVALID_ORDER;
+
 import christmas.menu.Appetizer;
 import christmas.menu.Dessert;
 import christmas.menu.Drink;
 import christmas.menu.Main;
 import christmas.menu.Menu;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Order {
 
-    private final Map<Menu, Integer> order;
+    private final Map<Menu, Integer> order = new HashMap<>();
 
     public Order(Map<String, Integer> order) {
-        validatePrepared(order);
-        validateTotalMenuNumber(order);
-
-
     }
 
     private Menu findMenu(String name) {
         List<Menu> preparedMenus = getPreparedMenus();
-        return null;
+
+        for (Menu preparedMenu : preparedMenus) {
+            if (preparedMenu.getName().equals(name)) {
+                return preparedMenu;
+            }
+        }
+
+        throw new IllegalArgumentException(INVALID_ORDER);
     }
 
     private List<Menu> getPreparedMenus() {
@@ -34,10 +40,6 @@ public class Order {
         preparedMenus.addAll(Drink.getPreparedMenus());
 
         return preparedMenus;
-    }
-
-    private void validatePrepared(Map<String, Integer> order) {
-
     }
 
     private void validateTotalMenuNumber(Map<String, Integer> order) {
