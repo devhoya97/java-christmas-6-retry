@@ -92,6 +92,14 @@ public class Event {
     }
 
     public Badge getBadge() {
-        return null;
+        int totalBenefitPrice = calculateTotalBenefitPrice();
+
+        for (Badge badge : Badge.values()) {
+            if (totalBenefitPrice >= badge.getTotalBenefitPrice()) {
+                return badge;
+            }
+        }
+
+        return Badge.NOTHING;
     }
 }
