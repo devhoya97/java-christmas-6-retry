@@ -36,12 +36,12 @@ public class VisitDate {
     }
 
     public boolean isInWeekDayPromotion() {
-        return false;
+        return !isInWeekendPromotion();
     }
 
     public boolean isInWeekendPromotion() {
         int dateRemainder = date % WEEK_SIZE;
-        
+
         return dateRemainder == FRIDAY_REMAINDER || dateRemainder == SATURDAY_REMAINDER;
     }
 }
