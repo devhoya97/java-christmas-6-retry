@@ -1,7 +1,21 @@
 package christmas.menu;
 
+import java.util.Arrays;
+import java.util.List;
+
 public enum Appetizer implements Menu {
-    ;
+    MUSHROOM_SOUP("양송이수프", 6_000),
+    TAPAS("타파스", 5_000),
+    CAESAR_SALAD("시저샐러드", 8_000);
+
+    private final String name;
+    private final int price;
+
+    Appetizer(String name, int price) {
+        this.name = name;
+        this.price = price;
+    }
+
     @Override
     public String getName() {
         return null;
@@ -11,6 +25,11 @@ public enum Appetizer implements Menu {
     public int getPrice() {
         return 0;
     }
+
+    public static List<Menu> getPreparedMenus() {
+        return Arrays.asList(Appetizer.values());
+    }
+
 
     @Override
     public boolean isMain() {
