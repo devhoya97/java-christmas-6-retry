@@ -82,8 +82,14 @@ public class Order {
         throw new IllegalArgumentException(INVALID_ORDER);
     }
 
-    public int totalPrice() {
-        return 0;
+    public int calculateTotalPrice() {
+        int totalPrice = 0;
+
+        for (Entry<Menu, Integer> orderedItem : order.entrySet()) {
+            totalPrice += orderedItem.getKey().getPrice() * orderedItem.getValue();
+        }
+
+        return totalPrice;
     }
 
     public int countMain() {
