@@ -72,7 +72,10 @@ public class Event {
         }
     }
     public int calculateTotalBenefitPrice() {
-        return 0;
+        return benefits.values()
+                .stream()
+                .mapToInt(benefitAmount -> benefitAmount)
+                .sum();
     }
 
     public int calculateTotalDiscountPrice() {
