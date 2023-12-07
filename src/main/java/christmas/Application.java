@@ -1,21 +1,27 @@
 package christmas;
 
+import christmas.view.InputView;
 import christmas.view.OutputView;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Application {
+    private static final InputView inputview = new InputView();
+    private static final OutputView outputview = new OutputView();
+
     public static void main(String[] args) {
-        Map<String, Integer> orderInput = new HashMap<>();
-        orderInput.put("타파스", 1);
-        orderInput.put("제로콜라", 1);
+        outputview.printStart();
 
-        Order order = new Order(orderInput);
-        OutputView outputView = new OutputView();
-        outputView.printOrder(order);
+        VisitDate visitDate = getValidVisitDate();
+    }
 
-        VisitDate visitDate = new VisitDate(3);
-        Event event = new Event(order, visitDate);
-        outputView.printEventResult(event);
+    private static VisitDate getValidVisitDate() {
+        while (true) {
+            try {
+                return new VisitDate(inputview.getVisitDate());
+            } catch (IllegalArgumentException illegalArgumentException) {
+                outputview.printErrorMessage(illegalArgumentException.getMessage());
+            }
+        }
     }
 }
