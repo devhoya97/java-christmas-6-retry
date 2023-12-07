@@ -7,6 +7,7 @@ public class Event {
     private static final int DEFAULT_CHRISTMAS_DISCOUNT = 1_000;
     private static final int CHRISTMAS_DISCOUNT_INCREASE = 100;
     private static final int DISCOUNT_PER_MENU = 2_023;
+    private static final int SPECIAL_DISCOUNT = 1_000;
     private static final int MIN_TOTAL_PRICE = 10_000;
     private final Order order;
     private final VisitDate visitDate;
@@ -58,7 +59,9 @@ public class Event {
     }
 
     private void calculateSpecialDiscount() {
-
+        if (visitDate.isInSpecialPromotion()) {
+            benefits.put(Benefit.SPECIAL, SPECIAL_DISCOUNT);
+        }
     }
 
     private void getGift() {
