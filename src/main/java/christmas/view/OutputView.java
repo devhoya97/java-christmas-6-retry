@@ -42,7 +42,8 @@ public class OutputView {
         StringBuilder message = new StringBuilder();
 
         addGiftMessage(event, message);
-        addTotalBenefitMessage(event, message);
+        addAppliedBenefitsMessage(event, message);
+        addTotalBenefitPriceMessage(event, message);
         addDiscountedPriceMessage(event, message);
 
         System.out.println(message);
@@ -59,7 +60,7 @@ public class OutputView {
         message.append(NOTHING).append(DOUBLE_NEW_LINE);
     }
 
-    private void addTotalBenefitMessage(Event event, StringBuilder message) {
+    private void addAppliedBenefitsMessage(Event event, StringBuilder message) {
         message.append("<혜택 내역>").append(NEW_LINE);
 
         if (event.doesNotGetBenefit()) {
@@ -78,5 +79,11 @@ public class OutputView {
         message.append("<할인 후 예상 결제 금액>").append(NEW_LINE)
                 .append(formatWithComma(event.calculateDiscountedPrice()))
                 .append("원").append(NEW_LINE);
+    }
+
+    private void addTotalBenefitPriceMessage(Event event, StringBuilder message) {
+        message.append("<총혜택 금액>").append(NEW_LINE).append(MINUS)
+                .append(formatWithComma(event.calculateTotalBenefitPrice()))
+                .append("원").append(DOUBLE_NEW_LINE);
     }
 }
