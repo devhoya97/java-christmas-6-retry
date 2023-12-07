@@ -6,6 +6,10 @@ public class VisitDate {
     private static final int MIN_DATE = 1;
     private static final int MAX_DATE = 31;
     private static final int CHRISTMAS_DATE = 25;
+    private static final int WEEK_SIZE = 7;
+    private static final int FRIDAY_REMAINDER = 1;
+    private static final int SATURDAY_REMAINDER = 2;
+    private static final int SUNDAY_REMAINDER = 3;
     private final int date;
 
     public VisitDate(int date) {
@@ -28,7 +32,7 @@ public class VisitDate {
     }
 
     public boolean isInSpecialPromotion() {
-        return false;
+        return ((date % WEEK_SIZE == SUNDAY_REMAINDER) || (date == CHRISTMAS_DATE));
     }
 
     public boolean isInWeekDayPromotion() {
