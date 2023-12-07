@@ -18,12 +18,12 @@ public enum Drink implements Menu {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public int getPrice() {
-        return 0;
+        return price;
     }
 
     public static List<Menu> getPreparedMenus() {

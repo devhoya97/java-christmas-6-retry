@@ -16,12 +16,12 @@ public enum Dessert implements Menu {
     }
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public int getPrice() {
-        return 0;
+        return price;
     }
 
     public static List<Menu> getPreparedMenus() {
@@ -35,7 +35,7 @@ public enum Dessert implements Menu {
 
     @Override
     public boolean isDessert() {
-        return false;
+        return true;
     }
 
     @Override
