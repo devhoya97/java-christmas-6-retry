@@ -101,6 +101,10 @@ public class Order {
     }
 
     public int countDessert() {
-        return 0;
+        return order.entrySet()
+                .stream()
+                .filter(orderItem -> orderItem.getKey().isDessert())
+                .mapToInt(Entry::getValue)
+                .sum();
     }
 }
