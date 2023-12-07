@@ -5,6 +5,7 @@ import static christmas.ChristmasConstants.INVALID_VISIT_DATE;
 public class VisitDate {
     private static final int MIN_DATE = 1;
     private static final int MAX_DATE = 31;
+    private static final int CHRISTMAS_DATE = 25;
     private final int date;
 
     public VisitDate(int date) {
@@ -19,7 +20,7 @@ public class VisitDate {
     }
 
     public boolean isInChristmasPromotion() {
-        return false;
+        return date <= CHRISTMAS_DATE;
     }
 
     public int countDifferenceFromFirstDate() {
