@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Order {
+    private static final int MAX_MENU_COUNT = 20;
 
     private final Map<Menu, Integer> order = new HashMap<>();
 
@@ -48,7 +49,14 @@ public class Order {
     }
 
     private void validateTotalMenuNumber(Map<String, Integer> order) {
+        int menuCountSum = order.values()
+                .stream()
+                .mapToInt(menuCount -> menuCount)
+                .sum();
 
+        if (menuCountSum > MAX_MENU_COUNT) {
+            throw new IllegalArgumentException(INVALID_ORDER);
+        }
     }
 
     private void validateOnlyDrink(Map<Menu, Integer> order) {
