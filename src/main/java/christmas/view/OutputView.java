@@ -77,8 +77,14 @@ public class OutputView {
     }
 
     private void addTotalBenefitPriceMessage(Event event, StringBuilder message) {
-        message.append("<총혜택 금액>").append(NEW_LINE).append(MINUS)
-                .append(formatWithComma(event.calculateTotalBenefitPrice()))
+        message.append("<총혜택 금액>").append(NEW_LINE);
+
+        int totalBenefitPrice = event.calculateTotalBenefitPrice();
+        if (totalBenefitPrice != 0) {
+            message.append(MINUS);
+        }
+
+        message.append(formatWithComma(event.calculateTotalBenefitPrice()))
                 .append("원").append(DOUBLE_NEW_LINE);
     }
 
