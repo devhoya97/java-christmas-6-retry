@@ -11,12 +11,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Order {
 
     private final Map<Menu, Integer> order = new HashMap<>();
 
     public Order(Map<String, Integer> order) {
+        for (Entry<String, Integer> orderEntry : order.entrySet()) {
+            Menu orderedMenu = findMenu(orderEntry.getKey());
+            this.order.put(orderedMenu, orderEntry.getValue());
+        }
     }
 
     private Menu findMenu(String name) {
