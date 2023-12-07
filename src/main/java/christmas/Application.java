@@ -16,6 +16,7 @@ public class Application {
         Order order = getValidOrder();
         Event event = new Event(order, visitDate);
 
+        outputview.printGuideMessage(visitDate);
         outputview.printOrder(order);
         outputview.printEventResult(event);
     }

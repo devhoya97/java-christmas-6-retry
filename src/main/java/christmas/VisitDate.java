@@ -44,4 +44,8 @@ public class VisitDate {
 
         return dateRemainder == FRIDAY_REMAINDER || dateRemainder == SATURDAY_REMAINDER;
     }
+
+    public int get() {
+        return date;
+    }
 }

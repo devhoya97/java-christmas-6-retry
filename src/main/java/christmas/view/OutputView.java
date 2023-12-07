@@ -3,6 +3,7 @@ package christmas.view;
 import christmas.Benefit;
 import christmas.Event;
 import christmas.Order;
+import christmas.VisitDate;
 import christmas.menu.Menu;
 import java.text.DecimalFormat;
 import java.util.Map.Entry;
@@ -23,6 +24,10 @@ public class OutputView {
 
     public void printErrorMessage(String errorMessage) {
         System.out.println(errorMessage);
+    }
+
+    public void printGuideMessage(VisitDate visitDate) {
+        System.out.printf("12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!" + DOUBLE_NEW_LINE, visitDate.get());
     }
 
     public void printOrder(Order order) {
