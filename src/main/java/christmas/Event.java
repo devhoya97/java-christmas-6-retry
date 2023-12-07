@@ -6,6 +6,7 @@ import java.util.Map;
 public class Event {
     private static final int DEFAULT_CHRISTMAS_DISCOUNT = 1_000;
     private static final int CHRISTMAS_DISCOUNT_INCREASE = 100;
+    private static final int DISCOUNT_PER_MENU = 2_023;
     private static final int MIN_TOTAL_PRICE = 10_000;
     private final Order order;
     private final VisitDate visitDate;
@@ -41,7 +42,11 @@ public class Event {
     }
 
     private void calculateWeekDayDiscount() {
+        if (visitDate.isInWeekDayPromotion()) {
+            int discount = DISCOUNT_PER_MENU * order.countDessert();
 
+            benefits.put(Benefit.WEEK_DAY, discount);
+        }
     }
 
     private void calculateWeekendDiscount() {
