@@ -3,6 +3,7 @@ package christmas;
 import christmas.menu.Drink;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Event {
     private static final int DEFAULT_CHRISTMAS_DISCOUNT = 1_000;
@@ -78,12 +79,16 @@ public class Event {
                 .sum();
     }
 
-    public int calculateTotalDiscountPrice() {
-        return 0;
+    public int calculateDiscountedPrice() {
+        return order.calculateTotalPrice() - calculateTotalDiscount();
     }
 
-    public int calculateDiscountedPrice() {
-        return 0;
+    private int calculateTotalDiscount() {
+        return benefits.entrySet()
+                .stream()
+                .filter(benefit -> benefit.getKey() != Benefit.GITF)
+                .mapToInt(Entry::getValue)
+                .sum();
     }
 
     public Badge getBadge() {
