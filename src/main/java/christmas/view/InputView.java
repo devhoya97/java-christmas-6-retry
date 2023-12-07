@@ -37,7 +37,7 @@ public class InputView {
             String[] menuAndCount = input.split(MENU_COUNT_DELIMITER);
             validateMenuAndCountLength(menuAndCount);
 
-            order.put(menuAndCount[0], parseIntWithIllegalArgumentException(menuAndCount[1].trim()));
+            order.put(menuAndCount[0].trim(), parseIntWithIllegalArgumentException(menuAndCount[1].trim()));
         }
 
         return order;
