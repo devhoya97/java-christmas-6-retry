@@ -32,7 +32,12 @@ public class Event {
     }
 
     private void calculateChristmasDiscount() {
+        if (visitDate.isInChristmasPromotion()) {
+            int discount = DEFAULT_CHRISTMAS_DISCOUNT +
+                    (CHRISTMAS_DISCOUNT_INCREASE * visitDate.countDifferenceFromFirstDate());
 
+            benefits.put(Benefit.CHRISTMAS, discount);
+        }
     }
 
     private void calculateWeekDayDiscount() {
