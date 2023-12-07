@@ -69,7 +69,7 @@ public class OutputView {
         }
 
         for (Entry<Benefit, Integer> benefit : event.getBenefits().entrySet()) {
-            message.append(benefit.getKey().getName()).append(BENEFIT_DELIMITER)
+            message.append(benefit.getKey().getName()).append(BENEFIT_DELIMITER).append(MINUS)
                     .append(formatWithComma(benefit.getValue())).append("원").append(NEW_LINE);
         }
         message.append(NEW_LINE);
