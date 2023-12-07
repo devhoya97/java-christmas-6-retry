@@ -19,6 +19,7 @@ public class Order {
     private final Map<Menu, Integer> order = new HashMap<>();
 
     public Order(Map<String, Integer> order) {
+        validateEachMenuCount(order);
         validateTotalMenuNumber(order);
 
         for (Entry<String, Integer> orderEntry : order.entrySet()) {
@@ -48,6 +49,14 @@ public class Order {
         preparedMenus.addAll(Drink.getPreparedMenus());
 
         return preparedMenus;
+    }
+
+    private void validateEachMenuCount(Map<String, Integer> order) {
+        for (Integer orderedNumber : order.values()) {
+            if (orderedNumber <= 0) {
+                throw new IllegalArgumentException(INVALID_ORDER);
+            }
+        }
     }
 
     private void validateTotalMenuNumber(Map<String, Integer> order) {

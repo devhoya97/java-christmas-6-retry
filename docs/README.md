@@ -21,7 +21,8 @@
     - [ ] "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해주세요." 를 출력한다.
   - [ ] [예외처리] 음료만 주문 시, IllegalArgumentException을 발생시킨다.
   - [x] [예외처리] 메뉴를 20개 초과하여 주문 시, IllegalArgumentException을 발생시킨다.
-  - [x] [예외처리] 메뉴판에 없는 메뉴를 입력하는 경우 IllegalArgumentException을 발생시킨다.
+  - [x] [예외처리] 메뉴판에 없는 메뉴를 입력하는 경우, IllegalArgumentException을 발생시킨다.
+  - [x] [예외처리] 메뉴 이름과 함께 0개를 주문하는 경우, IllegalArgumentException을 발생시킨다.
   - [ ] 크리스마스 디데이 할인을 적용한다.
     - [ ] `12.1 ~ 12.25` 기간동안 진행한다.
     - [ ] 1000원으로 시작하여 크리스마스가 다가올수록 날마다 할인 금액이 100원씩 증가한다.
