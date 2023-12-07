@@ -16,10 +16,10 @@ public class InputView {
 
         String input = Console.readLine().trim();
 
-        return parseIntWithIllegalArgumentException(input);
+        return parseIntWithInvalidVisitDate(input);
     }
 
-    private Integer parseIntWithIllegalArgumentException(String input) {
+    private Integer parseIntWithInvalidVisitDate(String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException numberFormatException) {
@@ -38,7 +38,7 @@ public class InputView {
             validateMenuAndCountLength(menuAndCount);
             validateUniqueMenu(order, menuAndCount[0].trim());
 
-            order.put(menuAndCount[0].trim(), parseIntWithIllegalArgumentException(menuAndCount[1].trim()));
+            order.put(menuAndCount[0].trim(), parseIntWithInvalidOrder(menuAndCount[1].trim()));
         }
         return order;
     }
@@ -51,6 +51,14 @@ public class InputView {
 
     private void validateMenuAndCountLength(String[] menuAndCount) {
         if (menuAndCount.length != MENU_AND_COUNT_LENGTH) {
+            throw new IllegalArgumentException(INVALID_ORDER);
+        }
+    }
+
+    private Integer parseIntWithInvalidOrder(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException(INVALID_ORDER);
         }
     }
