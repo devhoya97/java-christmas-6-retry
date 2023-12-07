@@ -1,5 +1,6 @@
 package christmas;
 
+import christmas.menu.Drink;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,7 +9,8 @@ public class Event {
     private static final int CHRISTMAS_DISCOUNT_INCREASE = 100;
     private static final int DISCOUNT_PER_MENU = 2_023;
     private static final int SPECIAL_DISCOUNT = 1_000;
-    private static final int MIN_TOTAL_PRICE = 10_000;
+    private static final int MIN_TOTAL_PRICE_FOR_EVENT = 10_000;
+    private static final int MIN_TOTAL_PRICE_FOR_GIFT = 120_000;
     private final Order order;
     private final VisitDate visitDate;
 
@@ -22,7 +24,7 @@ public class Event {
     }
 
     private void calculateBenefits() {
-        if (order.calculateTotalPrice() < MIN_TOTAL_PRICE) {
+        if (order.calculateTotalPrice() < MIN_TOTAL_PRICE_FOR_EVENT) {
             return;
         }
 
@@ -65,7 +67,9 @@ public class Event {
     }
 
     private void getGift() {
-        
+        if (order.calculateTotalPrice() >= MIN_TOTAL_PRICE_FOR_GIFT) {
+            benefits.put(Benefit.GITF, Drink.CHAMPAGNE.getPrice());
+        }
     }
     public int calculateTotalBenefitPrice() {
         return 0;
