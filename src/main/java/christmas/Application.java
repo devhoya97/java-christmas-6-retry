@@ -13,12 +13,23 @@ public class Application {
         outputview.printStart();
 
         VisitDate visitDate = getValidVisitDate();
+        Order order = getValidOrder();
     }
 
     private static VisitDate getValidVisitDate() {
         while (true) {
             try {
                 return new VisitDate(inputview.getVisitDate());
+            } catch (IllegalArgumentException illegalArgumentException) {
+                outputview.printErrorMessage(illegalArgumentException.getMessage());
+            }
+        }
+    }
+
+    private static Order getValidOrder() {
+        while (true) {
+            try {
+                return new Order(inputview.getOrder());
             } catch (IllegalArgumentException illegalArgumentException) {
                 outputview.printErrorMessage(illegalArgumentException.getMessage());
             }
