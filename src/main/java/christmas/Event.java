@@ -50,7 +50,11 @@ public class Event {
     }
 
     private void calculateWeekendDiscount() {
+        if (visitDate.isInWeekendPromotion()) {
+            int discount = DISCOUNT_PER_MENU * order.countMain();
 
+            benefits.put(Benefit.WEEKEND, discount);
+        }
     }
 
     private void calculateSpecialDiscount() {
