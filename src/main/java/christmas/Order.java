@@ -93,7 +93,11 @@ public class Order {
     }
 
     public int countMain() {
-        return 0;
+        return order.entrySet()
+                .stream()
+                .filter(orderItem -> orderItem.getKey().isMain())
+                .mapToInt(Entry::getValue)
+                .sum();
     }
 
     public int countDessert() {
