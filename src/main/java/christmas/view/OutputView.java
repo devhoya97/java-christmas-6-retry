@@ -43,6 +43,7 @@ public class OutputView {
 
         addGiftMessage(event, message);
         addTotalBenefitMessage(event, message);
+        addDiscountedPriceMessage(event, message);
 
         System.out.println(message);
     }
@@ -73,4 +74,9 @@ public class OutputView {
         message.append(NEW_LINE);
     }
 
+    private void addDiscountedPriceMessage(Event event, StringBuilder message) {
+        message.append("<할인 후 예상 결제 금액>").append(NEW_LINE)
+                .append(formatWithComma(event.calculateDiscountedPrice()))
+                .append("원").append(NEW_LINE);
+    }
 }
