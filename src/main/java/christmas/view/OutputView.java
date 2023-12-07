@@ -45,6 +45,7 @@ public class OutputView {
         addAppliedBenefitsMessage(event, message);
         addTotalBenefitPriceMessage(event, message);
         addDiscountedPriceMessage(event, message);
+        addBadgeMessage(event, message);
 
         System.out.println(message);
     }
@@ -75,15 +76,20 @@ public class OutputView {
         message.append(NEW_LINE);
     }
 
-    private void addDiscountedPriceMessage(Event event, StringBuilder message) {
-        message.append("<할인 후 예상 결제 금액>").append(NEW_LINE)
-                .append(formatWithComma(event.calculateDiscountedPrice()))
-                .append("원").append(NEW_LINE);
-    }
-
     private void addTotalBenefitPriceMessage(Event event, StringBuilder message) {
         message.append("<총혜택 금액>").append(NEW_LINE).append(MINUS)
                 .append(formatWithComma(event.calculateTotalBenefitPrice()))
                 .append("원").append(DOUBLE_NEW_LINE);
+    }
+
+    private void addDiscountedPriceMessage(Event event, StringBuilder message) {
+        message.append("<할인 후 예상 결제 금액>").append(NEW_LINE)
+                .append(formatWithComma(event.calculateDiscountedPrice()))
+                .append("원").append(DOUBLE_NEW_LINE);
+    }
+
+    private void addBadgeMessage(Event event, StringBuilder message) {
+        message.append("<12월 이벤트 배지>").append(NEW_LINE)
+                .append(event.getBadge().getName());
     }
 }
