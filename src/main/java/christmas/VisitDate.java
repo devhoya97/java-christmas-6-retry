@@ -40,6 +40,8 @@ public class VisitDate {
     }
 
     public boolean isInWeekendPromotion() {
-        return false;
+        int dateRemainder = date % WEEK_SIZE;
+        
+        return dateRemainder == FRIDAY_REMAINDER || dateRemainder == SATURDAY_REMAINDER;
     }
 }
