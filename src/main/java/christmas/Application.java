@@ -14,6 +14,10 @@ public class Application {
 
         VisitDate visitDate = getValidVisitDate();
         Order order = getValidOrder();
+        Event event = new Event(order, visitDate);
+
+        outputview.printOrder(order);
+        outputview.printEventResult(event);
     }
 
     private static VisitDate getValidVisitDate() {
